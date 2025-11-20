@@ -15,7 +15,7 @@ const carSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['Economy', 'Compact', 'SUV', 'Luxury', 'Van'],
+    enum: ['Economy', 'Compact', 'SUV', 'Luxury','Sport', 'Van'],
     required: true
   },
   pricePerDay: {
