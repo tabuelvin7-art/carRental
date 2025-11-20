@@ -94,60 +94,60 @@ const MyBookings = () => {
               transition={{ delay: index * 0.1 }}
               className="card overflow-hidden"
             >
-              <div className="md:flex">
+              <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/3">
                   <img
                     src={booking.car.image}
                     alt={`${booking.car.brand} ${booking.car.model}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-48 md:h-full object-cover"
                   />
                 </div>
 
-                <div className="p-6 md:w-2/3">
-                  <div className="flex justify-between items-start mb-4">
+                <div className="p-4 sm:p-6 md:w-2/3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
                         {booking.car.brand} {booking.car.model}
                       </h3>
-                      <p className="text-gray-600">{booking.car.category}</p>
+                      <p className="text-sm sm:text-base text-gray-600">{booking.car.category}</p>
                     </div>
-                    <span className={`px-4 py-2 rounded-full text-sm font-semibold uppercase ${getStatusColor(booking.status)}`}>
+                    <span className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase ${getStatusColor(booking.status)} whitespace-nowrap self-start`}>
                       {booking.status}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
                       <CalendarTodayIcon className="text-primary-600 mt-0.5" fontSize="small" />
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Rental Period</p>
-                        <p className="text-sm font-medium text-gray-900">
+                        <p className="text-xs sm:text-sm font-medium text-gray-900">
                           {new Date(booking.startDate).toLocaleDateString()} - {new Date(booking.endDate).toLocaleDateString()}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
                       <AttachMoneyIcon className="text-green-600 mt-0.5" fontSize="small" />
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Total Price</p>
-                        <p className="text-sm font-medium text-gray-900">${booking.totalPrice}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-900">${booking.totalPrice}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
                       <LocationOnIcon className="text-blue-600 mt-0.5" fontSize="small" />
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Pickup</p>
-                        <p className="text-sm font-medium text-gray-900">{booking.pickupLocation}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-900 break-words">{booking.pickupLocation}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
                       <LocationOnIcon className="text-red-600 mt-0.5" fontSize="small" />
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Dropoff</p>
-                        <p className="text-sm font-medium text-gray-900">{booking.dropoffLocation}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-900 break-words">{booking.dropoffLocation}</p>
                       </div>
                     </div>
                   </div>
@@ -157,7 +157,7 @@ const MyBookings = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleCancel(booking._id)}
-                      className="btn btn-danger"
+                      className="btn btn-danger text-sm sm:text-base w-full sm:w-auto"
                     >
                       <CancelIcon fontSize="small" />
                       Cancel Booking

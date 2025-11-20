@@ -45,7 +45,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <ToastContainer 
-            position="top-right" 
+            position="top-center"
             autoClose={3000}
             hideProgressBar={false}
             newestOnTop
@@ -55,6 +55,8 @@ function App() {
             draggable
             pauseOnHover
             theme="light"
+            className="mt-16 sm:mt-0"
+            style={{ top: '1rem' }}
           />
         </div>
       </Router>

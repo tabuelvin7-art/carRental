@@ -102,17 +102,17 @@ const Profile = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-6 sm:mb-8"
       >
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">My Profile</h1>
-        <p className="text-gray-600">Manage your account information</p>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">My Profile</h1>
+        <p className="text-sm sm:text-base text-gray-600">Manage your account information</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Profile Info Card */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -120,23 +120,23 @@ const Profile = () => {
           transition={{ delay: 0.1 }}
           className="lg:col-span-2"
         >
-          <div className="card p-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Profile Information</h2>
+          <div className="card p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Profile Information</h2>
               {!editMode && (
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setEditMode(true)}
-                  className="btn btn-outline"
+                  className="btn btn-outline text-sm sm:text-base w-full sm:w-auto"
                 >
                   <EditIcon fontSize="small" />
-                  Edit Profile
+                  <span className="sm:inline">Edit Profile</span>
                 </motion.button>
               )}
             </div>
 
-            <form onSubmit={handleProfileSubmit} className="space-y-6">
+            <form onSubmit={handleProfileSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name
@@ -198,13 +198,13 @@ const Profile = () => {
               </div>
 
               {editMode && (
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={loading}
-                    className="btn btn-primary flex-1"
+                    className="btn btn-primary flex-1 text-sm sm:text-base"
                   >
                     <SaveIcon fontSize="small" />
                     {loading ? 'Saving...' : 'Save Changes'}
@@ -221,7 +221,7 @@ const Profile = () => {
                         phone: user.phone
                       });
                     }}
-                    className="btn btn-secondary"
+                    className="btn btn-secondary text-sm sm:text-base"
                   >
                     Cancel
                   </motion.button>

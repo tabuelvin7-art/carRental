@@ -77,18 +77,18 @@ const Cars = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="card p-6 mb-8"
+        className="card p-4 sm:p-6 mb-6 sm:mb-8"
       >
         <div className="flex items-center gap-2 mb-4">
           <FilterListIcon className="text-primary-600" />
-          <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900">Filters</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <select
             name="category"
             value={filters.category}
             onChange={handleFilterChange}
-            className="input-field"
+            className="input-field text-sm sm:text-base"
           >
             <option value="">All Categories</option>
             <option value="Economy">Economy</option>
@@ -105,7 +105,7 @@ const Cars = () => {
             placeholder="Min Price"
             value={filters.minPrice}
             onChange={handleFilterChange}
-            className="input-field"
+            className="input-field text-sm sm:text-base"
           />
 
           <input
@@ -114,24 +114,24 @@ const Cars = () => {
             placeholder="Max Price"
             value={filters.maxPrice}
             onChange={handleFilterChange}
-            className="input-field"
+            className="input-field text-sm sm:text-base"
           />
 
-          <label className="flex items-center gap-2 px-4 py-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+          <label className="flex items-center gap-2 px-3 sm:px-4 py-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
             <input
               type="checkbox"
               name="available"
               checked={filters.available}
               onChange={handleFilterChange}
-              className="w-5 h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-500"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600 rounded focus:ring-2 focus:ring-primary-500"
             />
-            <span className="text-sm font-medium text-gray-700">Available Only</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-700">Available Only</span>
           </label>
         </div>
       </motion.div>
 
       {/* Cars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {cars.map((car, index) => (
           <motion.div
             key={car._id}
@@ -145,41 +145,41 @@ const Cars = () => {
               <img
                 src={car.image}
                 alt={`${car.brand} ${car.model}`}
-                className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+              <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                <span className="px-2 sm:px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
                   {car.category}
                 </span>
               </div>
             </div>
 
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className="p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                 {car.brand} {car.model}
               </h3>
 
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-3xl font-bold text-primary-600">${car.pricePerDay}</span>
-                <span className="text-gray-500">/day</span>
+                <span className="text-2xl sm:text-3xl font-bold text-primary-600">${car.pricePerDay}</span>
+                <span className="text-sm sm:text-base text-gray-500">/day</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 mb-6 p-3 bg-gray-50 rounded-lg">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6 p-2 sm:p-3 bg-gray-50 rounded-lg">
                 <div className="flex flex-col items-center">
                   <PeopleIcon className="text-gray-600 mb-1" fontSize="small" />
                   <span className="text-xs text-gray-600">{car.seats} Seats</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <SettingsIcon className="text-gray-600 mb-1" fontSize="small" />
-                  <span className="text-xs text-gray-600">{car.transmission}</span>
+                  <span className="text-xs text-gray-600 truncate max-w-full">{car.transmission}</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <LocalGasStationIcon className="text-gray-600 mb-1" fontSize="small" />
-                  <span className="text-xs text-gray-600">{car.fuelType}</span>
+                  <span className="text-xs text-gray-600 truncate max-w-full">{car.fuelType}</span>
                 </div>
               </div>
 
-              <Link to={`/cars/${car._id}`} className="btn btn-primary w-full">
+              <Link to={`/cars/${car._id}`} className="btn btn-primary w-full text-sm sm:text-base">
                 <DirectionsCarIcon fontSize="small" />
                 View Details
               </Link>

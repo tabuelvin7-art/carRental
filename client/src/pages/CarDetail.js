@@ -92,18 +92,18 @@ const CarDetail = () => {
   if (!car) return <div>Car not found</div>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {/* Car Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="sticky top-24 h-fit"
+          className="lg:sticky lg:top-24 h-fit"
         >
           <img
             src={car.image}
             alt={`${car.brand} ${car.model}`}
-            className="w-full rounded-2xl shadow-2xl"
+            className="w-full rounded-xl sm:rounded-2xl shadow-2xl"
           />
         </motion.div>
 
@@ -111,43 +111,43 @@ const CarDetail = () => {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6"
         >
-          <div className="card p-8">
-            <span className="inline-block px-4 py-2 bg-primary-100 text-primary-600 rounded-full text-sm font-semibold uppercase mb-4">
+          <div className="card p-4 sm:p-6 lg:p-8">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 text-primary-600 rounded-full text-xs sm:text-sm font-semibold uppercase mb-3 sm:mb-4">
               {car.category}
             </span>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
               {car.brand} {car.model}
             </h1>
-            <p className="text-gray-600 mb-6">Year: {car.year}</p>
+            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Year: {car.year}</p>
 
-            <div className="flex items-baseline gap-2 mb-8">
-              <span className="text-5xl font-bold text-primary-600">${car.pricePerDay}</span>
-              <span className="text-xl text-gray-500">/day</span>
+            <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">${car.pricePerDay}</span>
+              <span className="text-base sm:text-lg lg:text-xl text-gray-500">/day</span>
             </div>
 
             {/* Specs */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <PeopleIcon className="text-primary-600 mb-2" />
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <PeopleIcon className="text-primary-600 mb-1 sm:mb-2" fontSize="small" />
                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Seats</p>
-                <p className="text-lg font-bold text-gray-900">{car.seats}</p>
+                <p className="text-base sm:text-lg font-bold text-gray-900">{car.seats}</p>
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <SettingsIcon className="text-primary-600 mb-2" />
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <SettingsIcon className="text-primary-600 mb-1 sm:mb-2" fontSize="small" />
                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Transmission</p>
-                <p className="text-lg font-bold text-gray-900">{car.transmission}</p>
+                <p className="text-base sm:text-lg font-bold text-gray-900">{car.transmission}</p>
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <LocalGasStationIcon className="text-primary-600 mb-2" />
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <LocalGasStationIcon className="text-primary-600 mb-1 sm:mb-2" fontSize="small" />
                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Fuel Type</p>
-                <p className="text-lg font-bold text-gray-900">{car.fuelType}</p>
+                <p className="text-base sm:text-lg font-bold text-gray-900">{car.fuelType}</p>
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <DirectionsCarIcon className="text-primary-600 mb-2" />
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <DirectionsCarIcon className="text-primary-600 mb-1 sm:mb-2" fontSize="small" />
                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Status</p>
-                <p className="text-lg font-bold text-gray-900">
+                <p className="text-base sm:text-lg font-bold text-gray-900">
                   {car.available ? '✅ Available' : '❌ Not Available'}
                 </p>
               </div>
@@ -155,8 +155,8 @@ const CarDetail = () => {
 
             {/* Features */}
             {car.features && car.features.length > 0 && (
-              <div className="border-t border-gray-200 pt-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Features</h3>
+              <div className="border-t border-gray-200 pt-4 sm:pt-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Features</h3>
                 <div className="grid grid-cols-1 gap-2">
                   {car.features.map((feature, index) => (
                     <motion.div
@@ -164,10 +164,10 @@ const CarDetail = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="flex items-center gap-3 p-3 bg-green-50 rounded-lg"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-green-50 rounded-lg"
                     >
                       <CheckCircleIcon className="text-green-600" fontSize="small" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-sm sm:text-base text-gray-700">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -181,17 +181,17 @@ const CarDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="card p-8 border-2 border-primary-200"
+              className="card p-4 sm:p-6 lg:p-8 border-2 border-primary-200"
             >
-              <div className="flex items-center gap-2 mb-6">
-                <BookOnlineIcon className="text-primary-600 text-3xl" />
-                <h2 className="text-2xl font-bold text-gray-900">Book This Car</h2>
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                <BookOnlineIcon className="text-primary-600 text-2xl sm:text-3xl" />
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Book This Car</h2>
               </div>
 
-              <form onSubmit={handleBooking} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleBooking} className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       <CalendarTodayIcon fontSize="small" className="mr-1" />
                       Start Date
                     </label>
@@ -202,12 +202,12 @@ const CarDetail = () => {
                       onChange={handleChange}
                       min={new Date().toISOString().split('T')[0]}
                       required
-                      className="input-field"
+                      className="input-field text-sm sm:text-base"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       <CalendarTodayIcon fontSize="small" className="mr-1" />
                       End Date
                     </label>
@@ -218,13 +218,13 @@ const CarDetail = () => {
                       onChange={handleChange}
                       min={bookingData.startDate}
                       required
-                      className="input-field"
+                      className="input-field text-sm sm:text-base"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                     <LocationOnIcon fontSize="small" className="mr-1" />
                     Pickup Location
                   </label>
@@ -235,12 +235,12 @@ const CarDetail = () => {
                     value={bookingData.pickupLocation}
                     onChange={handleChange}
                     required
-                    className="input-field"
+                    className="input-field text-sm sm:text-base"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                     <LocationOnIcon fontSize="small" className="mr-1" />
                     Dropoff Location
                   </label>
@@ -251,7 +251,7 @@ const CarDetail = () => {
                     value={bookingData.dropoffLocation}
                     onChange={handleChange}
                     required
-                    className="input-field"
+                    className="input-field text-sm sm:text-base"
                   />
                 </div>
 
@@ -259,10 +259,10 @@ const CarDetail = () => {
                   <motion.div
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
-                    className="p-6 bg-primary-50 rounded-xl text-center border-2 border-primary-200"
+                    className="p-4 sm:p-6 bg-primary-50 rounded-xl text-center border-2 border-primary-200"
                   >
-                    <p className="text-sm text-gray-600 mb-2">Total Price</p>
-                    <p className="text-4xl font-bold text-primary-600">${calculateTotal()}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">Total Price</p>
+                    <p className="text-3xl sm:text-4xl font-bold text-primary-600">${calculateTotal()}</p>
                   </motion.div>
                 )}
 
@@ -270,9 +270,9 @@ const CarDetail = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full btn btn-secondary py-4 text-lg"
+                  className="w-full btn btn-secondary py-3 sm:py-4 text-base sm:text-lg"
                 >
-                  <BookOnlineIcon />
+                  <BookOnlineIcon fontSize="small" />
                   Book Now
                 </motion.button>
               </form>
