@@ -95,7 +95,7 @@ const Cars = () => {
             <option value="Compact">Compact</option>
             <option value="SUV">SUV</option>
             <option value="Luxury">Luxury</option>
-            <option value="Van">Sport</option>
+            <option value="Sport">Sport</option>
             <option value="Van">Van</option>
           </select>
 
