@@ -31,10 +31,8 @@ const AdminDashboard = () => {
       )}
 
       {/* Sidebar */}
-      <motion.aside
-        initial={{ x: -300 }}
-        animate={{ x: 0 }}
-        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white shadow-lg border-r border-gray-200 transform transition-transform duration-300 ${
+      <aside
+        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white shadow-lg border-r border-gray-200 transform transition-transform duration-300 ease-in-out ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
@@ -70,7 +68,7 @@ const AdminDashboard = () => {
             </NavLink>
           ))}
         </nav>
-      </motion.aside>
+      </aside>
 
       {/* Main Content */}
       <div className="flex-1 overflow-auto w-full lg:w-auto">
